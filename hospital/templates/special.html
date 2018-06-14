@@ -1,0 +1,11 @@
+<html>
+<body>
+<form method="post" action="/hospital/home/ans">
+		{% csrf_token %} 
+<div class="form-group">
+<input type="text" name="spec" class="form-control" width=1>
+<button type="submit" class ="btn btn-danger">Submit</button>
+</div>
+</form>
+</body>
+</html>

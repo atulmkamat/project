@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/hospital_js/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="/static/hospital_js/qrcode.js"></script>
+</head>
+<body>
+    This is a dummy html page user can see only when he is logged in.
+    <br>
+    Perhaps you can <a href="/hospital/logout">Logout</a> and try again to access this <a href="/hospital/home/">Page</a>.
+    <div style="color:red">
+        {{request.user.is_hospital}}
+    </div>
+
+    	<div id="qrcodeCanvas"></div>
+
+        <script>
+        var arr =  window.location.href.split("/");
+        jQuery('#qrcodeCanvas').qrcode({
+
+            text: arr[0]+"//"+arr[2]+"/"+arr[3]+"/views/"+"{{request.user}}"
+            });
+        </script>
+</body>
+</html>

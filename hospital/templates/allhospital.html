@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-asclepius</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body class="w3-theme-l4">
+<div style="min-width:400px">
+
+<div class="w3-bar w3-large w3-theme-d4">
+  <span class="w3-bar-item">E-asclepius</span>
+</div>
+    <p class="w3-opacity"><b><center><h1>Hospitals list</h1></center></b></p>
+{% ifequal flag 0 %}
+{% for i in ur %}
+{% for j in i %}
+<div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Hospital name :
+         <span class="w3-text-black">{{j.user.username}}</span>
+     </p>
+      <p class="w3-text-blue"> Hospital Location:
+         <span class="w3-text-black">{{j.location}}</span>
+     </p>
+      <p class="w3-text-blue"> Hospital Phone No :
+         <span class="w3-text-black">{{j.phno}}</span>
+     </p>
+     <p class="w3-text-blue"> Hospital Description:
+         <span class="w3-text-black">{{j.description}}</span>
+     </p>
+   <p class="w3-text-black"> for more information    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+       <a class="w3-text-blue" href="/hospital/_search/{{j.license}}">view</a> </p>
+ </div>
+</div>
+
+{% endfor %}
+{% endfor %}
+{%endifequal%}
+
+{% ifequal flag 1 %}
+{% for j in todisp %}
+
+<div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Hospital name :
+         <span class="w3-text-black">{{j.user.username}}</span>
+     </p>
+      <p class="w3-text-blue"> Hospital Location:
+         <span class="w3-text-black">{{j.location}}</span>
+     </p>
+      <p class="w3-text-blue"> Hospital Phone No :
+         <span class="w3-text-black">{{j.phno}}</span>
+     </p>
+     <p class="w3-text-blue"> Hospital Description:
+         <span class="w3-text-black">{{j.description}}</span>
+     </p>
+   <p class="w3-text-black"> for more information    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+       <a class="w3-text-blue" href="/hospital/_search/{{j.license}}">view</a> </p>
+ </div>
+</div>
+
+{% endfor %}
+{%endifequal%}
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-asclepius</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="w3-theme-l4">
+<div style="min-width:400px">
+
+<div class="w3-bar w3-large w3-theme-d4">
+  <span class="w3-bar-item">E-asclepius</span>
+</div>
+
+<div class="w3-container w3-content">
+    <p class="w3-opacity"><b><center><h1>Hospitals Information</h1></center></b></p>
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Hospital name :
+         <span class="w3-text-black">{{hosp.hospital.user.username}}</span>
+     </p>
+      <p class="w3-text-blue"> Hospital Location:
+         <span class="w3-text-black">{{hosp.hospital.location}}</span>
+     </p>
+      <p class="w3-text-blue"> Hospital Phone No :
+         <span class="w3-text-black">{{hosp.hospital.phno}}</span>
+     </p>
+     <p class="w3-text-blue"> Hospital Description:
+         <span class="w3-text-black">{{hosp.hospital.description}}</span>
+     </p>
+     {% if hosp.address != None %}
+     <p class="w3-text-blue"> Hospital Address:
+         <span class="w3-text-black">{{hosp.address}}</span>
+     </p>
+     {% endif %}
+     {% if hosp.pin_code != None %}
+     <p class="w3-text-blue"> Hospital Pincode:
+         <span class="w3-text-black">{{hosp.pin_code}}</span>
+     </p>
+     {% endif %}
+      {% if hosp.district != None %}
+     <p class="w3-text-blue"> Hospital District:
+         <span class="w3-text-black">{{hosp.district}}</span>
+     </p>
+       {% endif %}
+      {% if hosp.state != None %}
+      <p class="w3-text-blue"> Hospital State:
+         <span class="w3-text-black">{{hosp.state}}</span>
+     </p>
+     {% endif %}
+     {% if hosp.taluka != None %}
+      <p class="w3-text-blue"> Hospital Taluka:
+         <span class="w3-text-black">{{hosp.taluka}}</span>
+     </p>
+     {% endif %}
+     {% if hosp.staff_strength != None %}
+      <p class="w3-text-blue"> Hospital Staff Strength:
+         <span class="w3-text-black">{{hosp.staff_strength}}</span>
+     </p>
+     {% endif %}
+     {% if hosp.cost_range != None %}
+      <p class="w3-text-blue"> Hospital Cost Range:
+         <span class="w3-text-black">{{hosp.cost_range}}</span>
+     </p>
+
+     {% endif %}
+     {% if hosp.operation_facilty == True %}
+      <p class="w3-text-blue"> Hospital Operation Facilty: Yes</p>
+      {%else%}
+       <p class="w3-text-blue"> Hospital Operation Facilty: No</p>
+     {% endif %}
+     {% if hosp.emergency_facility == True %}
+      <p class="w3-text-blue"> Hospital Emergency Facility: Yes</p>
+    {%else%}
+    <p class="w3-text-blue"> Hospital Emergency Facility: No</p>
+     {% endif %}
+     {% if hosp.beds_count != None %}
+      <p class="w3-text-blue"> Hospital Beds Count:
+         <span class="w3-text-black">{{hosp.beds_count}}</span>
+     </p>
+
+     {% endif %}
+     {% if hosp.beds_occupied != None %}
+      <p class="w3-text-blue"> Hospital Beds Occupied:
+         <span class="w3-text-black">{{hosp.beds_occupied}}</span>
+     </p>
+     {% endif %}
+ </div>
+</div>
+
+
+    <div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <form action="" method="post">
+        {%csrf_token%}
+         <h1>Enter review</h1>
+
+        {% if review == None %}
+        <span> You must be logged in to continue <a href="/hospital">Login</a></span>
+        {% elif review.review == None %}
+        <textarea name="review_text" id="" cols="30" rows="10"></textarea>
+         <button type="submit" class="review"> Submit </button>
+         {% else %}
+
+         <textarea name="review_text" id="" cols="30" rows="10">{{review.review}}</textarea>
+         <button type="submit" class="review"> Update </button>
+        {%endif%}
+
+     </form>
+
+ </div>
+</div>
+
+
+
+
+
+</div>
+
+</body>
+</html>

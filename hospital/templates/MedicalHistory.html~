@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-asclepius</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body class="w3-theme-l4">
+<div style="min-width:400px">
+
+<div class="w3-bar w3-large w3-theme-d4">
+  <span class="w3-bar-item">E-asclepius</span>
+</div>
+    <p class="w3-opacity"><b><center><h1>Hospitals list</h1></center></b></p>
+{% for i in ur %}
+<div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Hospital name :
+         <span class="w3-text-black"></span>
+     </p>
+ </div>
+</div>
+{% endfor %}
+    <div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <form action="" method="post">
+        {%csrf_token%}
+         <p> <h3>select disease type</h3></p>
+         <select name="disease">
+    <option value="autoimmune">Autoimmune diseases</option>
+    <option value="asthma">Allergies and asthma</option>
+              <option value="bloodpressure">Blood Pressure</option>
+    <option value="cancer">Cancer</option>
+    <option value="celiac">Celiac disease</option>
+             <option value="crohns">Crohn’s disease</option>
+             <option value="heart">Heart disease</option>
+             <option value="infectious">Infectious diseases</option>
+             <option value="liver">Liver disease</option>
+             <option value="lupus">Lupus</option>
+             <option value="sclerosis">Multiple sclerosis</option>
+             <option value="kidney">Kidney Problems</option>
+              <option value="other">Other</option>
+
+        </select>
+         <h3>comment</h3>
+          <textarea name="comment" id="" cols="100" rows="1"></textarea>
+         <h3>medical data</h3>
+         <textarea name="medicaldata" id="" cols="100" rows="5"></textarea>
+         <button type="submit" class="review"> Submit </button>
+
+     </form>
+
+ </div>
+</div>
+</div>
+</body>
+</html
